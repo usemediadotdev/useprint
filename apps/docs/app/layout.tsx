@@ -1,3 +1,4 @@
+import type { ComponentProps } from 'react';
 import { RootProvider } from 'fumadocs-ui/provider/next';
 import './global.css';
 import { IBM_Plex_Sans, Space_Grotesk } from 'next/font/google';
@@ -14,6 +15,8 @@ const display = Space_Grotesk({
   weight: ['500', '600', '700'],
 });
 
+type RootProviderChildren = ComponentProps<typeof RootProvider>['children'];
+
 export default function Layout({ children }: LayoutProps<'/'>) {
   return (
     <html
@@ -22,7 +25,7 @@ export default function Layout({ children }: LayoutProps<'/'>) {
       suppressHydrationWarning
     >
       <body className="flex min-h-screen flex-col font-[family-name:var(--font-body)]">
-        <RootProvider>{children}</RootProvider>
+        <RootProvider>{children as RootProviderChildren}</RootProvider>
       </body>
     </html>
   );
