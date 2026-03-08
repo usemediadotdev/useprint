@@ -4,6 +4,7 @@
   "description": "Create PDF documents using your own React components.",
   "main": "index.js",
   "workspaces": [
+    "apps/*",
     "packages/*",
     "examples/*"
   ],
@@ -22,7 +23,7 @@
     "url": "https://github.com/maxscn/useprint/issues"
   },
   "homepage": "https://github.com/maxscn/useprint#readme",
-  "packageManager": "bun@1.2.19",
+  "packageManager": "bun@1.3.10",
   "devDependencies": {
     "@happy-dom/global-registrator": "^18.0.1",
     "happy-dom": "^18.0.1",
