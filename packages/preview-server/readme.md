@@ -1,34 +1,14 @@
-<div align="center"><strong>@useprint/preview</strong></div>
-<div align="center">A live preview of your documents right in your browser.</div>
-<br />
-<div align="center">
-<a href="https://useprint.dev">Website</a> 
-<span> · </span>
-<a href="https://github.com/maxscn/useprint">GitHub</a> 
-<span> · </span>
-<a href="https://useprint.dev/discord">Discord</a>
-</div>
+# @useprint/preview
 
-This package is used to store the preview server, it is also published and versioned so that it can be installed when the [CLI](../useprint) is being used.
+The internal preview runtime used by the Useprint CLI.
 
-## Development workflow
+This package powers the browser preview experience behind `@useprint/cli`. It is published so the CLI can bundle and install a matching preview server version when needed.
 
-### 1. Seed document templates
+## Typical usage
 
-```sh
-pnpm dev:seed
-```
+Most users should not install this package directly. Instead, install:
 
-This generates a boilerplate documents directory for you to work with. These files can also be modified as you see fit since they are not included in git.
+- `@useprint/components` to author documents
+- `@useprint/cli` to preview and export them
 
-### 2. Run development server
-
-```sh
-pnpm dev
-```
-
-This is somewhat equivalent to `next dev` and does not support hot reloading for document templates like the CLI does. It lets you work on the UI for the preview server mainly.
-
-### 3. Open in your browser
-
-Go to http://localhost:3000
+Reach for `@useprint/preview` directly only if you are working on the preview runtime itself.

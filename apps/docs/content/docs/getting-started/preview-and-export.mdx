@@ -1,0 +1,59 @@
+---
+title: Preview and export
+description: Use the CLI to preview documents locally and export HTML output.
+---
+
+The `useprint` CLI is the local workflow layer for the library. It helps you preview documents in the browser, export HTML, and build a production preview bundle.
+
+## Start the preview app
+
+```bash
+npx useprint dev
+```
+
+By default, this reads from `./documents` and starts the preview app on port `3000`.
+
+To point at a different directory or port:
+
+```bash
+npx useprint dev --dir ./templates --port 4000
+```
+
+## Export HTML
+
+When you want the rendered HTML files on disk, use:
+
+```bash
+npx useprint export
+```
+
+This builds each document component, renders it to HTML, and writes the output into `./out`.
+
+You can change the output directory or keep the HTML easier to inspect:
+
+```bash
+npx useprint export --outDir dist-documents --pretty
+```
+
+## Build the preview app
+
+If you want a built preview app inside `.useprint`, run:
+
+```bash
+npx useprint build
+npx useprint start
+```
+
+This is useful when you want the preview server bundled as a separate app.
+
+## Where PDFs fit in
+
+Useprint itself focuses on React authoring and HTML rendering. Once you have HTML, you can:
+
+- send it through `useprint-js` for the recommended hosted PDF flow
+- hand it to your own Chromium, Playwright, or browser-based PDF renderer
+
+<Cards>
+  <Card title="useprint-js integration" href="/docs/integrations/useprint-js" />
+  <Card title="Custom Chromium setup" href="/docs/integrations/custom-chromium" />
+</Cards>

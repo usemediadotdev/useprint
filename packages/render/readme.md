@@ -1,43 +1,43 @@
-![UsePrint button cover](https://useprint.dev/static/covers/render.png)
+# @useprint/render
 
-<div align="center"><strong>@useprint/render</strong></div>
-<div align="center">Transform React components into HTML document templates.</div>
-<br />
-<div align="center">
-<a href="https://useprint.dev">Website</a> 
-<span> · </span>
-<a href="https://github.com/maxscn/useprint">GitHub</a> 
-<span> · </span>
-<a href="https://useprint.dev/discord">Discord</a>
-</div>
+Transform React components into printable HTML documents.
 
 ## Install
 
-Install component from your command line.
-
-#### With yarn
-
 ```sh
-yarn add @useprint/render -E
-```
-
-#### With npm
-
-```sh
-npm install @useprint/render -E
+npm install @useprint/render react react-dom
 ```
 
 ## Getting started
 
-Convert React components into a HTML string.
+```tsx
+import { render } from '@useprint/render';
+import { Body, Document, Head, Page } from '@useprint/components';
 
-```jsx
-import { MyTemplate } from "../components/MyTemplate";
-import { render } from "@useprint/render";
+function Quote() {
+  return (
+    <Document>
+      <Head />
+      <Body>
+        <Page style={{ padding: 40 }}>
+          <h1>Quote</h1>
+          <p>Render this tree to HTML, then hand it to your PDF pipeline.</p>
+        </Page>
+      </Body>
+    </Document>
+  );
+}
 
-const html = await render(<MyTemplate firstName="Jim" />);
+const html = await render(<Quote />);
 ```
 
-## License
+## API
 
-MIT License
+- `render(node)` renders a React node to a full HTML document string.
+- `renderAsync(node)` is a deprecated alias for `render`.
+
+## Typical usage
+
+- author documents with `@useprint/components`
+- render them to HTML with `@useprint/render`
+- send that HTML through `useprint-js` or your own Chromium setup

@@ -1,0 +1,69 @@
+---
+title: '@useprint/components'
+description: React primitives for authoring printable documents.
+---
+
+`@useprint/components` is the main authoring package. It gives you the React primitives used to build printable documents and also re-exports the render and Tailwind helpers for convenience.
+
+## Install
+
+```bash
+npm install @useprint/components
+```
+
+## Example
+
+```tsx
+import { Body, Document, Head, Page } from '@useprint/components';
+
+export default function Contract() {
+  return (
+    <Document pageSize="A4">
+      <Head>
+        <title>Contract</title>
+      </Head>
+      <Body>
+        <Page style={{ padding: 48 }}>
+          <h1>Contract</h1>
+          <p>This page is authored as React and rendered later as HTML.</p>
+        </Page>
+      </Body>
+    </Document>
+  );
+}
+```
+
+## Core primitives
+
+### `Document`
+
+Sets the outer document and provides the active page size context.
+
+### `Head`
+
+Adds document metadata and gives `@useprint/tailwind` a place to inject non-inline styles.
+
+### `Body`
+
+Wraps the document body and lets you control the background color.
+
+### `Page`
+
+Represents a printable page with a known page size.
+
+### `NewPage`
+
+Forces a page break.
+
+### `Unbreakable`
+
+Wraps content that should avoid breaking across page boundaries.
+
+## Re-exports
+
+`@useprint/components` also re-exports:
+
+- `render` from `@useprint/render`
+- `Tailwind` from `@useprint/tailwind`
+
+That makes it a convenient single-package starting point, but the dedicated packages are still useful when you want tighter control over your imports.

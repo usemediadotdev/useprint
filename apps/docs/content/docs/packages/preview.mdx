@@ -1,0 +1,19 @@
+---
+title: '@useprint/preview'
+description: Internal preview runtime used by the CLI.
+---
+
+`@useprint/preview` is the preview runtime used by `@useprint/cli`.
+
+It powers the browser-based preview app, document loading, and HTML-to-PDF preview workflow behind the CLI commands.
+
+## Should you install it directly?
+
+Usually, no.
+
+For most projects:
+
+- install `@useprint/cli` for preview and export workflows
+- install `@useprint/components` for document authoring
+
+Reach for `@useprint/preview` directly only if you are working on the preview runtime itself.

@@ -1,0 +1,68 @@
+---
+title: '@useprint/cli'
+description: Preview, export, and build document workflows from the command line.
+---
+
+`@useprint/cli` provides the local development workflow for Useprint. It is the easiest way to preview your document components in the browser and export rendered HTML.
+
+## Install
+
+```bash
+npm install -D @useprint/cli
+```
+
+## Commands
+
+### `useprint dev`
+
+Starts the local preview app and watches your documents.
+
+```bash
+npx useprint dev
+```
+
+Useful flags:
+
+- `--dir <path>` to change the documents directory
+- `--port <port>` to change the preview port
+
+### `useprint export`
+
+Builds your document components and writes rendered HTML into an output directory.
+
+```bash
+npx useprint export
+```
+
+Useful flags:
+
+- `--outDir <path>` to change the output directory
+- `--pretty` to write easier-to-read HTML
+- `--dir <path>` to change the source directory
+
+### `useprint build`
+
+Copies the preview app into `.useprint`, installs dependencies, and runs a production build.
+
+```bash
+npx useprint build
+```
+
+### `useprint start`
+
+Starts the preview app that was built into `.useprint`.
+
+```bash
+npx useprint start
+```
+
+## Default project shape
+
+```text
+documents/
+  invoice.tsx
+  quote.tsx
+  static/
+```
+
+The CLI expects `./documents` by default, and it copies `documents/static` into exported output when present.

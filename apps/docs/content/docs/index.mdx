@@ -1,0 +1,91 @@
+---
+title: Build printable documents with React
+description: Author documents as React components, render them to HTML, and plug that HTML into your PDF pipeline.
+---
+
+Useprint is a React-first toolkit for building printable documents as actual React components.
+
+The core flow is simple:
+
+1. Build your document with `@useprint/components`
+2. Preview it locally with `@useprint/cli`
+3. Render it to HTML with `@useprint/render`
+4. Turn that HTML into a PDF with `useprint-js` or your own Chromium setup
+
+## Start Here
+
+<Cards>
+  <Card
+    title="Installation"
+    href="/docs/getting-started/installation"
+    description="Start with @useprint/components and @useprint/cli."
+  />
+  <Card
+    title="Your first document"
+    href="/docs/getting-started/your-first-document"
+    description="Create a page-aware document as a React component."
+  />
+  <Card
+    title="Preview and export"
+    href="/docs/getting-started/preview-and-export"
+    description="Run the local preview app, export HTML, or build a preview bundle."
+  />
+</Cards>
+
+## Recommended Packages
+
+For most projects, start with the authoring and preview combo:
+
+```bash
+npm install @useprint/components
+npm install -D @useprint/cli
+```
+
+When you need lower-level control, add the dedicated packages directly.
+
+<Cards>
+  <Card
+    title="@useprint/components"
+    href="/docs/packages/components"
+    description="Document primitives plus re-exports for render and Tailwind."
+  />
+  <Card
+    title="@useprint/cli"
+    href="/docs/packages/cli"
+    description="Preview, export, and build document workflows from the command line."
+  />
+  <Card
+    title="@useprint/render"
+    href="/docs/packages/render"
+    description="Turn React trees into printable HTML."
+  />
+  <Card
+    title="@useprint/tailwind"
+    href="/docs/packages/tailwind"
+    description="Apply Tailwind classes to rendered documents."
+  />
+</Cards>
+
+## Integrations
+
+Useprint focuses on the React-to-HTML layer. Once you have HTML, you can choose how PDFs are produced.
+
+<Cards>
+  <Card
+    title="useprint-js"
+    href="/docs/integrations/useprint-js"
+    description="Recommended hosted flow for turning React or HTML into PDFs."
+  />
+  <Card
+    title="Custom Chromium"
+    href="/docs/integrations/custom-chromium"
+    description="Render HTML with Useprint, then drive Chromium or Playwright yourself."
+  />
+</Cards>
+
+## Why Useprint
+
+- Author documents in React instead of string templates.
+- Keep layout logic close to the component tree that produces it.
+- Preview documents locally while you iterate.
+- Render portable HTML that works with your own PDF backend or `useprint-js`.

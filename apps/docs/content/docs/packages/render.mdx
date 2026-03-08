@@ -1,0 +1,54 @@
+---
+title: '@useprint/render'
+description: Render React document trees into printable HTML.
+---
+
+`@useprint/render` is the package that turns your React tree into HTML. It is the bridge between authoring documents in React and sending HTML into a PDF pipeline.
+
+## Install
+
+```bash
+npm install @useprint/render react react-dom
+```
+
+## Example
+
+```tsx
+import { render } from '@useprint/render';
+import { Body, Document, Head, Page } from '@useprint/components';
+
+function PackingSlip() {
+  return (
+    <Document>
+      <Head />
+      <Body>
+        <Page style={{ padding: 32 }}>
+          <h1>Packing slip</h1>
+        </Page>
+      </Body>
+    </Document>
+  );
+}
+
+const html = await render(<PackingSlip />);
+```
+
+## API
+
+### `render(node)`
+
+Renders a React node to a full HTML document string.
+
+### `renderAsync(node)`
+
+Deprecated alias for `render`.
+
+### `plainTextSelectors`
+
+Exports the plain-text selector helpers used by the render package.
+
+## Notes
+
+- The output is a full HTML document string
+- Suspense-aware rendering is supported
+- This package works well as the boundary between your React authoring code and either `useprint-js` or your own browser automation stack

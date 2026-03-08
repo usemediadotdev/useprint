@@ -1,0 +1,82 @@
+---
+title: Your first document
+description: Build a printable document as a React component.
+---
+
+Useprint documents are just React components. The main difference is that you compose them with page-aware primitives instead of regular app layout components.
+
+## Example
+
+```tsx
+import { Body, Document, Head, Page } from '@useprint/components';
+
+export default function Invoice() {
+  return (
+    <Document pageSize="A4">
+      <Head>
+        <title>Invoice</title>
+      </Head>
+      <Body backgroundColor="white">
+        <Page
+          style={{
+            padding: 48,
+            fontFamily: 'Georgia, serif',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 24,
+          }}
+        >
+          <header>
+            <h1 style={{ margin: 0, fontSize: 32 }}>Invoice #1042</h1>
+            <p style={{ margin: '8px 0 0', color: '#475569' }}>
+              Built as React, rendered as HTML.
+            </p>
+          </header>
+
+          <section>
+            <p style={{ margin: 0 }}>Ada Lovelace</p>
+            <p style={{ margin: '6px 0 0' }}>12 Analytical Engine Way</p>
+            <p style={{ margin: '6px 0 0' }}>London</p>
+          </section>
+
+          <section style={{ marginTop: 'auto' }}>
+            <strong>Total due: $1,280.00</strong>
+          </section>
+        </Page>
+      </Body>
+    </Document>
+  );
+}
+```
+
+## What each primitive does
+
+- `Document` defines the outer document and global page size context
+- `Head` inserts metadata and a place for non-inline styles
+- `Body` wraps the document body content
+- `Page` defines a single printable page using a known page size
+
+## Adding more pages
+
+Use multiple `Page` components when your document has natural page boundaries. Use `NewPage` when you need to force a page break in flowing content.
+
+```tsx
+import { Body, Document, Head, NewPage, Page } from '@useprint/components';
+
+export default function MultiPageDocument() {
+  return (
+    <Document>
+      <Head />
+      <Body>
+        <Page>Cover page</Page>
+        <NewPage />
+        <Page>Details page</Page>
+      </Body>
+    </Document>
+  );
+}
+```
+
+## Next step
+
+Once you have a document component, use the CLI to preview it locally and export HTML.

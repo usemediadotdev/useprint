@@ -1,60 +1,70 @@
-![UsePrint cover](https://useprint.dev/static/covers/useprint.png)
+# @useprint/cli
 
-<div align="center"><strong>UsePrint</strong></div>
-<div align="center">The next generation of writing documents.<br />High-quality, unstyled components for creating documents.</div>
-<br />
-<div align="center">
-<a href="https://useprint.dev">Website</a> 
-<span> · </span>
-<a href="https://github.com/maxscn/useprint">GitHub</a> 
-<span> · </span>
-<a href="https://useprint.dev/discord">Discord</a>
-</div>
+Preview, export, and build Useprint documents from the command line.
+
+## Install
+
+```sh
+npm install -D @useprint/cli
+```
 
 ## Getting started
 
-To get started, open a new shell and run:
+The CLI expects a `documents/` directory by default.
 
-```sh
-npx create-document
+```text
+documents/
+  invoice.tsx
+  static/
 ```
 
-This will create a new folder called `documents` with a few document templates.
-
-## Commands
-
-### `document dev`
-
-Starts a local development server that will watch your files and automatically rebuild your document when you make changes.
+Start the local preview app:
 
 ```sh
 npx useprint dev
 ```
 
-### `document export`
+## Commands
 
-Generates the plain HTML files of your documents into a `out` directory.
+### `useprint dev`
+
+Starts the local preview app and watches your documents.
+
+```sh
+npx useprint dev
+```
+
+### `useprint export`
+
+Renders your document components to HTML files in `out/`.
 
 ```sh
 npx useprint export
 ```
 
-## Setting Up the Environment
+### `useprint build`
 
-When working in the CLI, a lot of friction can get introduced with installing it and rebuilding for every change. To avoid that, we have a script that can be linked globally to directly run the source code of the CLI. You can use it the same as you would the standard CLI.
-
-### 1. Link `useprint` globally
+Copies the preview app into `.useprint` and runs a production build.
 
 ```sh
-pnpm link ./dev -g
+npx useprint build
 ```
 
-### 2. Run the CLI
+### `useprint start`
+
+Starts the built preview app from `.useprint`.
 
 ```sh
-document-dev [command] [flags]
+npx useprint start
 ```
 
-## License
+## Notes
 
-MIT License
+- Use `--dir` to point the CLI at a different documents folder.
+- Use `--port` with `dev` to change the preview port.
+- Use `--outDir` and `--pretty` with `export` to control HTML output.
+
+## See also
+
+- `@useprint/components` for authoring documents in React
+- `@useprint/render` for the underlying React-to-HTML step

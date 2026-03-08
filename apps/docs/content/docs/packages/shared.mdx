@@ -1,0 +1,21 @@
+---
+title: '@useprint/shared'
+description: Shared page-size constants and utilities used by the Useprint packages.
+---
+
+`@useprint/shared` contains the low-level constants that other Useprint packages rely on for page sizing.
+
+## Exports
+
+- `PAGE_SIZES`
+- `PPI`
+- `MM_PER_INCH`
+- `MM_TO_PX`
+
+## When to use it directly
+
+Most users will not need this package directly. It is useful when you want to:
+
+- inspect the built-in page sizes
+- derive your own sizing logic from the shared conversion helpers
+- stay aligned with the same page-size values used by components and preview tooling

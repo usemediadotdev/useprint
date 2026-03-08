@@ -1,0 +1,56 @@
+---
+title: '@useprint/tailwind'
+description: Apply Tailwind classes to rendered documents.
+---
+
+`@useprint/tailwind` wraps your document tree, resolves Tailwind classes, and applies styles in a rendering-friendly way.
+
+## Install
+
+```bash
+npm install @useprint/tailwind tailwindcss
+```
+
+## Example
+
+```tsx
+import { Body, Document, Head, Page } from '@useprint/components';
+import { Tailwind } from '@useprint/tailwind';
+
+export default function Proposal() {
+  return (
+    <Tailwind
+      config={{
+        theme: {
+          extend: {
+            colors: {
+              ink: '#111827',
+            },
+          },
+        },
+      }}
+    >
+      <Document>
+        <Head />
+        <Body>
+          <Page className="bg-white p-10 text-ink">
+            <h1 className="text-3xl font-semibold">Proposal</h1>
+          </Page>
+        </Body>
+      </Document>
+    </Tailwind>
+  );
+}
+```
+
+## Important requirement
+
+If your document uses styles that cannot be fully inlined, `Tailwind` needs a `<head>` somewhere in the tree so it can inject a `<style>` tag.
+
+In practice, that means using the `Head` component inside your document.
+
+## What it is good for
+
+- keeping document styling in utility classes
+- mixing inlineable styles with media-query-based styles
+- sharing a Tailwind theme with the rest of your app while still producing printable HTML
