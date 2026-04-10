@@ -14,15 +14,17 @@ concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
   release:
-    name: release
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
-          registry-url: https://registry.npmjs.org
+          node-version: "22.14.0"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Update npm
+        run: npm i -g npm@latest
 
       - uses: oven-sh/setup-bun@v2
 
