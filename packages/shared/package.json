@@ -1,6 +1,6 @@
 {
   "name": "@useprint/shared",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Shared constants and utilities for useprint packages",
   "sideEffects": false,
   "main": "./dist/index.js",
