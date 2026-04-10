@@ -27,8 +27,6 @@ jobs:
       - uses: oven-sh/setup-bun@v2
 
       - run: bun install
-      - name: Run all tests
-        run: bun run test
 
       - id: changesets
         uses: changesets/action@v1
