@@ -1,5 +1,15 @@
 # @useprint/components
 
+## 0.1.3
+
+### Patch Changes
+
+- aa72ad0: Fixing missing packages.
+- Updated dependencies [aa72ad0]
+  - @useprint/render@0.1.3
+  - @useprint/shared@0.1.3
+  - @useprint/tailwind@0.1.3
+
 ## 0.1.2
 
 ### Patch Changes
