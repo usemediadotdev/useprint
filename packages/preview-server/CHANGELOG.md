@@ -1,5 +1,15 @@
 # @useprint/preview
 
+## 0.1.3
+
+### Patch Changes
+
+- aa72ad0: Declare missing direct dependencies for `@useprint/preview` so fresh `init-doc` installs can resolve the preview app font imports and bundled test helpers without relying on monorepo-only root packages.
+- aa72ad0: Fixing missing packages.
+- Updated dependencies [aa72ad0]
+  - @useprint/components@0.1.3
+  - @useprint/shared@0.1.3
+
 ## 0.1.2
 
 ### Patch Changes
